@@ -4,15 +4,15 @@ Users are able to enter some information into different fields defined below and
 
 ## Task 1
 Entry fields where 1 user is able to enter the information they would like to display on the box.\
-Price: User will enter (only NUMBERS ALLOWED)\
-Property Type: User will enter  (only ALPHABETS ALLOWED)\
-Year Built: User will enter  (only NUMBERS ALLOWED)\
-Beds: User will enter  (only NUMBERS ALLOWED)\
-Baths: User will enter  (only NUMBERS ALLOWED)\
-Sq Ft: User will enter  (only NUMBERS ALLOWED)\
-Property Address:  User will enter  (NUMBERS AND ALPHABETS ALLOWED)\
-Description:  User will enter  (only ALPHABETS ALLOWED)\
-Price/per Sq Ft: User will enter  (only NUMBERS ALLOWED)\
+Price: User will enter (only **NUMBERS ALLOWED**)\
+Property Type: User will enter  (only **ALPHABETS ALLOWED**)\
+Year Built: User will enter  (only **NUMBERS ALLOWED**)\
+Beds: User will enter  (only **NUMBERS ALLOWED**)\
+Baths: User will enter  (only **NUMBERS ALLOWED**)\
+Sq Ft: User will enter  (only **NUMBERS ALLOWED**)\
+Property Address:  User will enter  (**NUMBERS AND ALPHABETS ALLOWED**)\
+Description:  User will enter  (only **ALPHABETS ALLOWED**)\
+Price/per Sq Ft: User will enter  (only **NUMBERS ALLOWED**)\
 
 ## Task 2
 We will have 5 boxes for this task. Those 5 boxes should display fields 1 to 5 ONLY (from task 1) on the main page.
