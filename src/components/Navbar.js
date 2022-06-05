@@ -36,3 +36,54 @@ function Navbar() {
 }
 
 export default Navbar;
+
+const NavbarContainer = styled.header`
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: transparent;
+    justify-content: space-around;
+    align-items: center;
+    /* > li, > ol{
+        color: blue;
+    } */
+    > ol{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        > li{
+            height: 100%;
+            position: relative;
+            :hover{
+                color: white;
+                background-color: rgb(89 92 96);
+            }
+            a{
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 16px;
+            }
+            :hover > ol{
+                display: block;
+                position: absolute;
+                top: 60px;
+            }
+            > ol{
+                display: none;
+                background-color: rgb(147 152 160);
+                color: #fff;
+                li{
+                    height: 50px;
+                    padding: 0 20px;
+                    :hover{
+                        background-color: rgb(89 92 96);
+                    }
+                    a{
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+`
