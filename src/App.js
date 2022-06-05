@@ -5,9 +5,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <p>PB-mini-project-2</p>
-    </div>
+    <AppContainer>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </AppContainer>
   );
 }
 
