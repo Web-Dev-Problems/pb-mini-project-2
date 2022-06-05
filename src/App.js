@@ -10,6 +10,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          {/* Page for each product like https://www.tesla.com/model3 */}
+          {/* Before they compare we should ask for their optimal zip code or address so we could show how near a home is to there */}
         </Routes>
       </Router>
     </AppContainer>
