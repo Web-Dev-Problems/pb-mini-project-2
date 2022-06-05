@@ -17,3 +17,8 @@ function App() {
 }
 
 export default App;
+
+const AppContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+`
