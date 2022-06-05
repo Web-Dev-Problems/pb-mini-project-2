@@ -11,3 +11,7 @@ function Filter() {
 
 export default Filter
 
+const FilterContainer = styled.ul`
+    display: flex;
+    flex-direction: column;
+`
