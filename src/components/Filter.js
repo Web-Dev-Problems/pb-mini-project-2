@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 function Filter() {
     // Use sort and filter
+    const [appliedFilters, setAppliedFilters] = useState([])
     const [filter, setFilter] = useState(
         {
             minPrice : {
