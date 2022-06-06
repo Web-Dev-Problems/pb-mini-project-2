@@ -98,29 +98,9 @@ function Filter() {
     )
     return (
         <FilterContainer>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            {/* <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
+            {appliedFilters.map((filter, i) => {
+                return (<li key={i}>{filter.name}</li>)
+            })}
             <li>Add filter</li>
             <li>Add filter</li>
             <li>Add filter</li>
