@@ -129,9 +129,16 @@ const FilterContainer = styled.ul`
     flex-wrap: wrap;
     li{
         white-space: nowrap;
-        padding: 4px 10px;
+        padding: 20px 5px;
         background-color: rgb(242 242 242);
         border-radius: 4px;
-        margin: 0 4px 4px 4px;
+        // margin: 0 4px 4px 4px;
+        width: 80px;
+        display: flex;  
+        cursor: pointer;
+        flex-direction: row;
+        align-items: center;
+        height: 30px;
+        transition: 0.1s ease-in-out;
     }
 `
