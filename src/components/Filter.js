@@ -1,5 +1,7 @@
-import React from 'react'
+import { placeholder } from '@babel/types'
+import{useState} from 'react'
 import styled from "styled-components"
+
 
 function Filter() {
   return (
