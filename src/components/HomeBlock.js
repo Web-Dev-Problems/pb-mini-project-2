@@ -80,6 +80,8 @@ function HomeBlock({ value, index, setFavorite, setHouseData }) {
   )
 }
 
+export default HomeBlock
+
 const HomeBlockContainer = styled.li`
     position : relative;
     border: none;
@@ -244,4 +246,3 @@ const HomeBlockContainer = styled.li`
     }
   `
 
-export default HomeBlock
