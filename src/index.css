@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Asap', sans-serif;
+  src: url('./fonts/Asap-VariableFont_wght.ttf');
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap%27'); */
+
 *{
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Asap', sans-serif;
 }
 
 ul, ol{
