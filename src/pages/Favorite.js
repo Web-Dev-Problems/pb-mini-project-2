@@ -8,8 +8,8 @@ function Favorite({houseData, favorite, setFavorite, setHouseData}) {
     <FavoriteContainer>
         {/* <Filter /> */}
         <ul>
-            {favorite && favorite.map((value) => {
-                return <HomeBlock value={houseData[value]} index={value} setFavorite={setFavorite} setHouseData={setHouseData} />
+            {favorite && favorite.map((value, i) => {
+                return <HomeBlock key={i} value={houseData[value]} index={value} setFavorite={setFavorite} setHouseData={setHouseData} />
             })}
         </ul>
     </FavoriteContainer>
