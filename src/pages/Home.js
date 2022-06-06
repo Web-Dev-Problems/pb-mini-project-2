@@ -25,7 +25,8 @@ const HomeContainer = styled.section`
         padding: 70px 0 30px 0;
         display: grid;
         grid-template-columns: repeat(auto-fill, 300px);
-        margin: 0 auto;
+        width: 100%;
+        justify-content: center;
         grid-column-gap: 34px;
         grid-row-gap: 27px;
     }
