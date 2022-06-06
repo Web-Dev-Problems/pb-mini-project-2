@@ -55,11 +55,11 @@ function HomeBlock({ value, index, setFavorite, setHouseData }) {
       <section className='nav-arrows'>
         <ArrowBackIosIcon onClick={() => {
           position.current = (position.current - 300) % 1200;
-          {carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}}
+          carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
         <ArrowForwardIosIcon onClick={() => {
           position.current = (position.current + 300) % 1200;
-          {carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}}
+          carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
       </section>
       <p id="price">${FormatPrice(value.price)}</p>
