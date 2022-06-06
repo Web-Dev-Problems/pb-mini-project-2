@@ -13,7 +13,7 @@ function App() {
     console.log(houseData)
     localStorage.setItem("favorite", JSON.stringify(favorite))    
     localStorage.setItem("data", JSON.stringify(houseData))
-  }, [favorite])
+  }, [favorite, houseData])
   useEffect(() => {
     if (!localStorage.getItem("data") || Object.keys(JSON.parse(localStorage.getItem("data"))).length == 0) {
       localStorage.setItem("data", JSON.stringify({
