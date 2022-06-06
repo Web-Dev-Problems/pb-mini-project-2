@@ -6,11 +6,11 @@ function Navbar() {
   return (
     <NavbarContainer>
         <h1>
-            <Link to="#">P Beam</Link>
+            <Link to="/">P Beam</Link>
         </h1>
         <ol>
             <li>
-                <Link to="#">Favorite</Link>
+                <Link to="/favorite">Favorite</Link>
             </li>
             <li>
                 <Link to="#">Add House</Link>
