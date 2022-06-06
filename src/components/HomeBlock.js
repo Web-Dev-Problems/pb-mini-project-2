@@ -6,10 +6,13 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 
-function HomeBlock({ value, index, setFavorite, setHouseData }) {
+function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected }) {
   const [favoritebool, setFavoritebool] = useState(value.favorite)
+    const [selectedbool, setSelectedbool] = useState(false)
   var position = useRef(1200)
   const carouselRef = useRef()
   function FormatPrice(num){
@@ -23,17 +26,38 @@ function HomeBlock({ value, index, setFavorite, setHouseData }) {
   } 
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
-      <FavoriteIcon className={ favoritebool ?"appear": "disappear"} onMouseDown={(event) => {
+          {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
         setHouseData((prevData) => {
           prevData[index].favorite = false
           return prevData
         })
+              setSelected((selected) => {
+                  return selected.filter(e => e !== index)
+              });
+              setSelectedbool(!selectedbool)
+          }} /> :
+              <FavoriteIcon className={favoritebool ? "appear" : "disappear"} onMouseDown={(event) => {
+                  setHouseData((prevData) => {
+                      prevData[index].favorite = false
+                      return prevData
+                  })
         setFavorite((favorite) => {
           return favorite.filter(e => e !== index)
         });
         setFavoritebool(!favoritebool)
-        }}/>
-      <FavoriteBorderIcon className={ favoritebool ? "disappear": "appear"} onMouseDown={
+              }} />}
+          {selecting ? <RadioButtonUncheckedIcon className={selectedbool ? "disappear radio" : "appear radio"} onMouseDown={
+              (event) => {
+                  setHouseData((prevData) => {
+                      prevData[index].favorite = true
+                      return prevData
+                  })
+                  setSelected((selected) => {
+                      return [...selected, index]
+                  });
+                  setSelectedbool(!selectedbool)
+              }} /> :
+              <FavoriteBorderIcon className={favoritebool ? "disappear" : "appear"} onMouseDown={
         (event) => {
           setHouseData((prevData) => {
             prevData[index].favorite = true
@@ -43,7 +67,7 @@ function HomeBlock({ value, index, setFavorite, setHouseData }) {
             return [...favorite, index]
           });
           setFavoritebool(!favoritebool)
-        }}/>
+                  }} />}
         <section id="carousel">
           <ul ref={carouselRef}>
             <li><img src={value.img} alt="House"></img></li>
@@ -89,6 +113,8 @@ const HomeBlockContainer = styled.li`
     border-radius: 6px;
     box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.25);
     > svg{
+      width: 30px;
+      height: 30px;
       position: absolute;
       top: 0;
       right: 0;
@@ -112,6 +138,12 @@ const HomeBlockContainer = styled.li`
       :hover{
         z-index: 0;
       }
+    }
+    .radio {
+        // color: blue;
+        :hover {
+            color: white;
+        }
     }
     #carousel{
       width: 300px;
