@@ -17,3 +17,16 @@ function Home({ houseData, setFavorite, setHouseData }) {
 }
 
 export default Home
+
+const HomeContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    > ul:nth-of-type(1){
+        padding: 70px 0 30px 0;
+        display: grid;
+        grid-template-columns: repeat(4, 300px);
+        margin: 0 auto;
+        grid-column-gap: 34px;
+        grid-row-gap: 27px;
+    }
+`
