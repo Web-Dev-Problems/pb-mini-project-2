@@ -23,7 +23,7 @@ const FavoriteContainer = styled.section`
     flex-direction: column;
     > ul:nth-of-type(1){
         display: grid;
-        grid-template-columns: repeat(4, 300px);
+        grid-template-columns: repeat(auto-fill, 300px);
         margin: 0 auto;
         grid-column-gap: 34px;
         grid-row-gap: 27px;
