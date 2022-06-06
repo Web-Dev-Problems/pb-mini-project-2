@@ -145,5 +145,13 @@ export default Filter
 
 const FilterContainer = styled.ul`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li{
+        white-space: nowrap;
+        padding: 4px 10px;
+        background-color: rgb(242 242 242);
+        border-radius: 4px;
+        margin: 0 4px 4px 4px;
+    }
 `
