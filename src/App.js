@@ -6,6 +6,90 @@ import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
+  const [houseData, setHouseData] = useState((JSON.parse(localStorage.getItem("data")) || {}))
+  const [favorite, setFavorite] = useState((JSON.parse(localStorage.getItem("favorite")) || []))
+  useEffect(() => {
+    console.log(favorite)
+    console.log(houseData)
+    localStorage.setItem("favorite", JSON.stringify(favorite))    
+    localStorage.setItem("data", JSON.stringify(houseData))
+  }, [favorite])
+  useEffect(() => {
+    if (!localStorage.getItem("data") || Object.keys(JSON.parse(localStorage.getItem("data"))).length == 0) {
+      localStorage.setItem("data", JSON.stringify({
+      0 :{
+        img : "/houseImage.jpg",
+        img1 : "/houseImage2.jpg",
+        img2 : "/houseImage3.jpg",
+        img3 : "/houseImage4.jpg",
+        price : 15000,
+        type : "Apartment",
+        year : 2005,
+        area: 1406,
+        beds : 4,
+        baths : 2,
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
+        favorite: false
+      },
+      1 :{
+        img : "/houseImage.jpg",
+        img1 : "/houseImage2.jpg",
+        img2 : "/houseImage3.jpg",
+        img3 : "/houseImage4.jpg",
+        price : 30000,
+        type : "Commercial",
+        year : 2010,
+        area: 1406,
+        beds : 7,
+        baths : 4,
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
+        favorite: false
+      },
+      2 :{
+        img : "/houseImage.jpg",
+        img1 : "/houseImage2.jpg",
+        img2 : "/houseImage3.jpg",
+        img3 : "/houseImage4.jpg",
+        price : 5000,
+        type : "Condo",
+        year : 2002,
+        area: 1406,
+        beds : 5,
+        baths : 6,
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
+        favorite: false
+      },
+      3 :{
+        img : "/houseImage.jpg",
+        img1 : "/houseImage2.jpg",
+        img2 : "/houseImage3.jpg",
+        img3 : "/houseImage4.jpg",
+        price : 25000,
+        type : "Townhouse",
+        year : 2020,
+        beds : 5,
+        area: 1406,
+        baths : 3,
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
+        favorite: false
+      },
+      4 :{
+        img : "/houseImage.jpg",
+        img1 : "/houseImage2.jpg",
+        img2 : "/houseImage3.jpg",
+        img3 : "/houseImage4.jpg",
+        price : 5000,
+        type : "Co-op",
+        year : 2000,
+        area: 1406,
+        beds : 4,
+        baths : 2,
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
+        favorite: false
+      }}))}
+      setHouseData(JSON.parse(localStorage.getItem("data")))
+  }, [])
+  
   return (
     <AppContainer>
       <Router>
