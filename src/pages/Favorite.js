@@ -22,6 +22,7 @@ const FavoriteContainer = styled.section`
     display: flex;
     flex-direction: column;
     > ul:nth-of-type(1){
+        padding: 70px 0 30px 0;
         display: grid;
         grid-template-columns: repeat(auto-fill, 300px);
         width: 100%;
