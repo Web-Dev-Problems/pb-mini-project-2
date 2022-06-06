@@ -6,11 +6,11 @@ function Navbar() {
   return (
     <NavbarContainer>
         <h1>
-            <Link to="#">P Beam</Link>
+            <Link to="/">P Beam</Link>
         </h1>
         <ol>
             <li>
-                <Link to="#">Favorite</Link>
+                <Link to="/favorite">Favorite</Link>
             </li>
             <li>
                 <Link to="#">Add House</Link>
@@ -42,8 +42,9 @@ const NavbarContainer = styled.header`
     flex-direction: row;
     height: 60px;
     background-color: transparent;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
     /* > li, > ol{
         color: blue;
     } */
@@ -68,11 +69,13 @@ const NavbarContainer = styled.header`
                 display: block;
                 position: absolute;
                 top: 60px;
+                right: 0;
             }
             > ol{
                 display: none;
                 background-color: rgb(147 152 160);
                 color: #fff;
+                z-index: 10;
                 li{
                     height: 50px;
                     padding: 0 20px;
