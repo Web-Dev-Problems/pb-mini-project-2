@@ -9,8 +9,6 @@ function App() {
   const [houseData, setHouseData] = useState((JSON.parse(localStorage.getItem("data")) || {}))
   const [favorite, setFavorite] = useState((JSON.parse(localStorage.getItem("favorite")) || []))
   useEffect(() => {
-    console.log(favorite)
-    console.log(houseData)
     localStorage.setItem("favorite", JSON.stringify(favorite))    
     localStorage.setItem("data", JSON.stringify(houseData))
   }, [favorite, houseData])
