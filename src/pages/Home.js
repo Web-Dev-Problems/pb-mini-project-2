@@ -24,8 +24,9 @@ const HomeContainer = styled.section`
     > ul:nth-of-type(1){
         padding: 70px 0 30px 0;
         display: grid;
-        grid-template-columns: repeat(4, 300px);
-        margin: 0 auto;
+        grid-template-columns: repeat(auto-fill, 300px);
+        width: 100%;
+        justify-content: center;
         grid-column-gap: 34px;
         grid-row-gap: 27px;
     }
