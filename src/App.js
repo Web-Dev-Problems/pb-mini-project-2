@@ -15,7 +15,7 @@ function App() {
     localStorage.setItem("data", JSON.stringify(houseData))
   }, [favorite, houseData])
   useEffect(() => {
-    if (!localStorage.getItem("data") || Object.keys(JSON.parse(localStorage.getItem("data"))).length == 0) {
+    if (!localStorage.getItem("data") || Object.keys(JSON.parse(localStorage.getItem("data"))).length === 0) {
       localStorage.setItem("data", JSON.stringify({
       0 :{
         img : "/houseImage.jpg",
