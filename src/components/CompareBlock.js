@@ -1,11 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import HotelIcon from '@mui/icons-material/Hotel';
-import BathtubIcon from '@mui/icons-material/Bathtub';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 const CompareBlock = ({ value }) => {
     var position = useRef(1200)
@@ -31,10 +27,11 @@ const CompareBlock = ({ value }) => {
             }/>
       </section>
       <section className='compare-details'>
-        {Object.keys(value).map((attr, i) => {
+        {Object.keys(value).map((attr) => {
             if (attr !== "images" && attr !== "favorite") {
                 return <p id={`${attr}`}>{value[attr]}</p>
             }
+            return null
         })}
       </section>
     </CompareBlockContainer>

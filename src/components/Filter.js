@@ -1,11 +1,12 @@
-import { placeholder } from '@babel/types'
 import{useState} from 'react'
 import styled from "styled-components"
 
 
 function Filter() {
     // Use sort and filter
+    // eslint-disable-next-line
     const [appliedFilters, setAppliedFilters] = useState(["minPrice", "maxPrice", "priceSort", "propertyType", "yearBuilt", "yearSort", "beds", "bedSort", "baths", "bathSort", "minsqFt", "maxsqFt", "sqFtSort", "zip", "minPriceSqFt", "maxPriceSqFt", "priceSQFtSort"])
+    // eslint-disable-next-line
     const [filter, setFilter] = useState(
         {
             minPrice : {
@@ -145,7 +146,6 @@ const FilterContainer = styled.ul`
         padding: 20px 5px;
         background-color: rgb(242 242 242);
         border-radius: 4px;
-        // margin: 0 4px 4px 4px;
         width: max-content;
         display: flex;  
         cursor: pointer;

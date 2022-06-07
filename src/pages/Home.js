@@ -1,8 +1,6 @@
-// import Filter from '../components/Filter'
 import HomeBlock from '../components/HomeBlock';
 import styled from "styled-components";
 import Filter from "../components/Filter";
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { useState } from 'react';
 import Compare from '../components/Compare';
 
