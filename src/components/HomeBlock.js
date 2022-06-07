@@ -1,4 +1,4 @@
-import {useState, useRef } from 'react'
+import {useState, useRef, useEffect } from 'react'
 import styled from "styled-components"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -24,6 +24,9 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
     }
     return num
   } 
+  useEffect(() => {
+    setSelectedbool(false)
+  }, [selecting==false])
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
           {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {

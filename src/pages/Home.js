@@ -15,7 +15,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
         <section  className={selecting ? "show" : "hide"}>
             <button onClick={() => { !selecting && setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}>Compare</button>
-            <button onClick={() => { setSelecting(false) }}>Cancel</button>
+            <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
         </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
@@ -129,7 +129,7 @@ const HomeContainer = styled.section`
         cursor: pointer;
         font-size: 25px;
         font-weight: bold;
-        line-spacing: 1em;
+        letter-spacing: 1em;
         transition: ease-in-out 0.2s;
         border-radius: 7px;
         background-color: rgb(32 76 234);
