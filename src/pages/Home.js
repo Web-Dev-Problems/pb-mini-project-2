@@ -31,28 +31,26 @@ export default Home
 const HomeContainer = styled.section`
     display: flex;
     flex-direction: column;
-    .options {
-        padding: 0px 100px;
+    > section{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        section {
-            display: flex;
-            cursor: pointer;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #939393;
-            height: 30px;
-            padding: 20px 5px;
-            border-radius: 4px;
-            // margin: 0 4px 4px 4px;
-            transition: 0.1s ease-in-out;
-            svg {
-                color: red;
-                width: 20px;
-                height: 20px;
+        justify-content: flex-end;
+        margin: 0 50px;
+        padding: 50px 0 0 0;
+        overflow: hidden;
+        button{
+            font-size: 18px;
+            min-width: 50px;
+            transition: transform 0.7s ease-in-out;
+            border-radius: 8px;
+            padding: 4px 16px;
+            border: 3px solid;
+        }
+        button:nth-child(1){
+            border-color: #939393;
+            :hover{
+                background-color: #939393;
+                color: #fff;
             }
         }
         .small {
