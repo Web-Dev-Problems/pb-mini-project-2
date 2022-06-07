@@ -10,6 +10,7 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 const CompareBlock = ({ value }) => {
     var position = useRef(1200)
     const carouselRef = useRef()
+    var schema = ["Address", "Price", "Apartment Type", "Year", "Plot Area", "Beds", "Baths"]
   return (
     <CompareBlockContainer>
         <section id="carousel">
