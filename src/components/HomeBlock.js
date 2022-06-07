@@ -30,10 +30,10 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
           {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
-        setHouseData((prevData) => {
-          prevData[index].favorite = false
-          return prevData
-        })
+        // setHouseData((prevData) => {
+        //   prevData[index].favorite = false
+        //   return prevData
+        // })
               setSelected((selected) => {
                   return selected.filter(e => e !== index)
               });
@@ -51,10 +51,10 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
               }} />}
           {selecting ? <RadioButtonUncheckedIcon className={selectedbool ? "disappear radio" : "appear radio"} onMouseDown={
               (event) => {
-                  setHouseData((prevData) => {
-                      prevData[index].favorite = true
-                      return prevData
-                  })
+                  // setHouseData((prevData) => {
+                  //     prevData[index].favorite = true
+                  //     return prevData
+                  // })
                   setSelected((selected) => {
                       return [...selected, index]
                   });
