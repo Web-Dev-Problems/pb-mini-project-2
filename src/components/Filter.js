@@ -146,9 +146,10 @@ const FilterContainer = styled.ul`
         background-color: rgb(242 242 242);
         border-radius: 4px;
         // margin: 0 4px 4px 4px;
-        width: 80px;
+        width: max-content;
         display: flex;  
         cursor: pointer;
+        margin: 4px 8px;
         flex-direction: row;
         align-items: center;
         height: 30px;
