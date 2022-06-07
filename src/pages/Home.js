@@ -27,7 +27,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
         </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
-                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} />
+                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} reset={reset} />
             })}
           </ul>
           {/* <button className={`compare-button ${(selecting && selected.length >= 2) ? "visible" : "hidden"}`}>Compare</button> */}
