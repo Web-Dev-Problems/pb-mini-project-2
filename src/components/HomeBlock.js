@@ -11,7 +11,7 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 
 function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected }) {
-    const [favoritebool, setFavoritebool] = useState(value.favorite)
+  const [favoritebool, setFavoritebool] = useState(value.favorite)
     const [selectedbool, setSelectedbool] = useState(false)
   var position = useRef(1200)
   const carouselRef = useRef()
@@ -25,12 +25,12 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
     return num
   } 
   return (
-      <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
+    <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
           {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
-              setHouseData((prevData) => {
-                  prevData[index].favorite = false
-                  return prevData
-              })
+        setHouseData((prevData) => {
+          prevData[index].favorite = false
+          return prevData
+        })
               setSelected((selected) => {
                   return selected.filter(e => e !== index)
               });
@@ -41,10 +41,10 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                       prevData[index].favorite = false
                       return prevData
                   })
-                  setFavorite((favorite) => {
-                      return favorite.filter(e => e !== index)
-                  });
-                  setFavoritebool(!favoritebool)
+        setFavorite((favorite) => {
+          return favorite.filter(e => e !== index)
+        });
+        setFavoritebool(!favoritebool)
               }} />}
           {selecting ? <RadioButtonUncheckedIcon className={selectedbool ? "disappear radio" : "appear radio"} onMouseDown={
               (event) => {
@@ -58,15 +58,15 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                   setSelectedbool(!selectedbool)
               }} /> :
               <FavoriteBorderIcon className={favoritebool ? "disappear" : "appear"} onMouseDown={
-                  (event) => {
-                      setHouseData((prevData) => {
-                          prevData[index].favorite = true
-                          return prevData
-                      })
-                      setFavorite((favorite) => {
-                          return [...favorite, index]
-                      });
-                      setFavoritebool(!favoritebool)
+        (event) => {
+          setHouseData((prevData) => {
+            prevData[index].favorite = true
+            return prevData
+          })
+          setFavorite((favorite) => {
+            return [...favorite, index]
+          });
+          setFavoritebool(!favoritebool)
                   }} />}
         <section id="carousel">
           <ul ref={carouselRef}>
