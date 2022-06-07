@@ -69,9 +69,49 @@ const HomeContainer = styled.section`
                 color: revert;
             }
         }
-    }   
-    > ul:nth-of-type(1){
-        padding: 70px 0 30px 0;
+        @keyframes bounce {
+            25%{
+                transform: translateY(-10px);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            75%{
+                transform: translateY(-5px)
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        button:nth-child(2).animate{
+            animation: bounce 0.7s cubic-bezier(1, 1, 0.45, 0.71);
+            border-color:  blue;
+            :hover{
+                background-color: blue;
+            }
+        }
+        button:nth-child(3){
+            margin-left: 8px;
+            border-color: #ff6464;
+            :hover{
+                background-color: #ff6464;
+                color: #fff;
+            }
+        }
+    }
+    .hide{
+        button:nth-child(1){
+            transform: translateX(calc(84px + 13ch));
+        }
+        button:nth-child(2){
+            transform: translateX(250px);
+        }
+        button:nth-child(3){
+            transform: translateX(250px);
+        }
+    }
+    > ul:nth-of-type(2){
+        padding: 20px 0 30px 0;
         display: grid;
         grid-template-columns: repeat(auto-fill, 300px);
         width: 100%;
