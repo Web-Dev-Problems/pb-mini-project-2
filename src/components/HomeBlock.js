@@ -10,9 +10,9 @@ import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 
-function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected }) {
+function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset }) {
   const [favoritebool, setFavoritebool] = useState(value.favorite)
-    const [selectedbool, setSelectedbool] = useState(false)
+  const [selectedbool, setSelectedbool] = useState(false)
   var position = useRef(1200)
   const carouselRef = useRef()
   function FormatPrice(num){
