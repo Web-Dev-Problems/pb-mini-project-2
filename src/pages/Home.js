@@ -12,6 +12,10 @@ function Home({ houseData, setFavorite, setHouseData }) {
     const [reset, setReset] = useState(false)
     const [selected, setSelected] = useState([])
     const [comparing, setComparing] = useState(false)
+    const resetCompare = () => {
+        setSelected([]);
+        setReset(!reset)
+    }
   return (
     <HomeContainer>
         <Filter />
