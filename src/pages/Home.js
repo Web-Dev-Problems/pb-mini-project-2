@@ -9,6 +9,7 @@ import Compare from '../components/Compare';
 
 function Home({ houseData, setFavorite, setHouseData }) {
     const [selecting, setSelecting] = useState(false)
+    const [reset, setReset] = useState(false)
     const [selected, setSelected] = useState([])
     const [comparing, setComparing] = useState(false)
   return (
