@@ -4,7 +4,6 @@ import CompareBlock from './CompareBlock'
 
 const Compare = ({ selected, setComparing, houseData}) => {
   const [closeCompare, setCloseCompare] = useState(false)
-  var schema = ["Price", "Apartment Type", "Year", "Plot Area", "Beds", "Baths", "Address"]
   
   return (
     <CompareContainer className={`overlay ${closeCompare ? 'close' : '' }`}>
