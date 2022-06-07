@@ -11,16 +11,17 @@ function Home({ houseData, setFavorite, setHouseData }) {
     const [selected, setSelected] = useState([])
   return (
     <HomeContainer>
-          <section className="options">
-              <Filter />
-              <section onClick={() => { setSelecting(true) }} className={selecting ? "big" : "small"}>Select...{selecting && <CancelOutlinedIcon onMouseDown={() => { setSelecting(false) }} />} </section>
-          </section>
+        <Filter />
+        <section  className={selecting ? "show" : "hide"}>
+            <button onClick={() => { !selecting && setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
+            <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}>Compare</button>
+            <button onClick={() => { setSelecting(false) }}>Cancel</button>
+        </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
                   return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} />
             })}
         </ul>
-          <button className={`compare-button ${(selecting && selected.length >= 2) ? "visible" : "hidden"}`}>Compare</button>
     </HomeContainer>
   )
 }
