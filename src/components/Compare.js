@@ -41,47 +41,40 @@ const CompareContainer = styled.section`
             opacity: 0%;
         }
     }
+    padding: 0!important;
     .compare-window {
         width: max-content;
         height: max-content;
         opacity: 100%;
         background-color: white;
-        display: inline-flex;
-        flex-direction: row;
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
         position: relative;
-        padding: 50px 50px 30px 50px;
         border-radius: 5px;
-        overflow-x: scroll;
-        .schema {
+        align-items: flex-start;
+        >section:nth-of-type(1){
+            height: max-content;
+            width: 100%;
+            max-width: calc(100vw - 7px);
             display: flex;
-            flex-direction: column;
             justify-content: flex-end;
-            p {
-                border-right: 1px solid #939393;
-                width: 100%;
-                text-align: center;
-                text-transform: uppercase;
-                font-size: 14px;
-                font-weight: 500;
-                color: #939393;
-                width: 100%;
-                height: 40px;
-                width: 100%;
-                border-bottom: 1px solid #939393;
-                width: 100%;
-                /* border-bottom: 1px solid transparent; */
-                padding: 8px;
-            }
         }
+        > section:nth-of-type(2){
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            max-width: 100vw;
+            padding: 20px 50px 30px 50px;
+            overflow-x: auto;
+            > section ~ section{
+                border-left: 1px solid rgba(147, 147, 147, 0.6);
+            }
+        }    
         .close-compare {
-            position: absolute;
-            top: 0px;
-            right: 0px;
             outline: none;
             border: none;
             background-color: transparent;
-            padding: 6px 28px;
+            padding: 8px 28px;
             border-radius: 0px 5px 0px 0px;
             cursor: pointer;
             transition: 0.2s ease-in-out;
