@@ -8,18 +8,17 @@ const Compare = ({ selected, setComparing, houseData}) => {
   return (
     <CompareContainer className={`overlay ${closeCompare ? 'close' : '' }`}>
         <section className='compare-window'>
-            <section className='schema'>
-                {schema.map((attr) => {
-                    return <p>{attr}</p>
+            <section>
+                <button className="close-compare" onClick={() => {
+                    setCloseCompare(true);
+                    setTimeout(()=>{setComparing(false)}, 400)
+                }}><p>+</p></button>
+            </section>
+            <section>
+                {selected && selected.map((index, i) => {
+                    return <CompareBlock key={i} value={houseData[index]} />
                 })}
             </section>
-            {selected && selected.map((index, i) => {
-                return <CompareBlock key={i} value={houseData[index]} />
-            })}
-            <button className="close-compare" onClick={() => {
-                setCloseCompare(true);
-                setTimeout(()=>{setComparing(false)}, 400)
-            }}><p>+</p></button>
         </section>
     </CompareContainer>
   )
