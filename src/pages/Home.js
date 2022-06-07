@@ -22,7 +22,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
         <section  className={selecting ? "show" : "hide"}>
             <button onClick={() => { selecting ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
-            onClick={() => setComparing(true)}>Compare</button>
+            onClick={() => (selecting && selected.length >= 2) && setComparing(true)}>Compare</button>
             <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
         </section>
         <ul>
