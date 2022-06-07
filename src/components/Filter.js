@@ -103,21 +103,6 @@ function Filter() {
                 return (<li key={i}>{filter.name}</li>)
             })}
             <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li>
-            <li>Add filter</li> */}
         </FilterContainer>
     )
 }
