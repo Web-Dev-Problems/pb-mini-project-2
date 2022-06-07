@@ -31,9 +31,8 @@ const CompareBlock = ({ value }) => {
             }/>
       </section>
       <section className='compare-details'>
-        {Object.keys(value).map((attr) => {
+        {Object.keys(value).map((attr, i) => {
             if (attr !== "images" && attr !== "favorite") {
-                console.log(attr)
                 return <p id={`${attr}`}>{value[attr]}</p>
             }
         })}
