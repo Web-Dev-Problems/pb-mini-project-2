@@ -4,24 +4,29 @@ import styled from "styled-components";
 import Filter from "../components/Filter";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { useState } from 'react';
+import Compare from '../components/Compare';
 
 
 function Home({ houseData, setFavorite, setHouseData }) {
     const [selecting, setSelecting] = useState(false)
     const [selected, setSelected] = useState([])
+    const [comparing, setComparing] = useState(false)
   return (
     <HomeContainer>
         <Filter />
         <section  className={selecting ? "show" : "hide"}>
             <button onClick={() => { !selecting && setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
-            <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}>Compare</button>
-            <button onClick={() => { setSelecting(false) }}>Cancel</button>
+            <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
+            onClick={() => setComparing(true)}>Compare</button>
+            <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
         </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
                   return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} />
             })}
-        </ul>
+          </ul>
+          {/* <button className={`compare-button ${(selecting && selected.length >= 2) ? "visible" : "hidden"}`}>Compare</button> */}
+          {comparing && <Compare selected={selected} setComparing={setComparing} houseData={houseData} />}
     </HomeContainer>
   )
 }
@@ -128,7 +133,7 @@ const HomeContainer = styled.section`
         cursor: pointer;
         font-size: 25px;
         font-weight: bold;
-        line-spacing: 1em;
+        letter-spacing: 1em;
         transition: ease-in-out 0.2s;
         border-radius: 7px;
         background-color: rgb(32 76 234);
@@ -142,4 +147,21 @@ const HomeContainer = styled.section`
     .hidden {
         top: 100%;
     }   
+    .overlay {
+        background-color: rgba(5, 10, 20, 0.3);
+        position: fixed;
+        top: 0;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: compare-overlay-in 0.4s ease-in-out 0s 1 backwards;
+    }
+
+    .close{
+        animation: compare-overlay-out 0.4s ease-in-out 0s 1 forwards;
+    }
 `
