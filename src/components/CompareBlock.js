@@ -12,7 +12,7 @@ const CompareBlock = ({ value }) => {
     const carouselRef = useRef()
     var schema = ["Address", "Price", "Apartment Type", "Year", "Plot Area", "Beds", "Baths"]
   return (
-    <CompareBlockContainer>
+    <CompareBlockContainer schema={schema}>
         <section id="carousel">
           <ul ref={carouselRef}>
             {value.images.map((img) => {
