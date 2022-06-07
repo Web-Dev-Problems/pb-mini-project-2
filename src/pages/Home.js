@@ -1,28 +1,31 @@
-// import Filter from '../components/Filter'
 import HomeBlock from '../components/HomeBlock';
 import styled from "styled-components";
 import Filter from "../components/Filter";
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { useState } from 'react';
 import Compare from '../components/Compare';
 
 
 function Home({ houseData, setFavorite, setHouseData }) {
     const [selecting, setSelecting] = useState(false)
+    const [reset, setReset] = useState(false)
     const [selected, setSelected] = useState([])
     const [comparing, setComparing] = useState(false)
+    const resetCompare = () => {
+        setSelected([]);
+        setReset(!reset)
+    }
   return (
     <HomeContainer>
         <Filter />
         <section  className={selecting ? "show" : "hide"}>
-            <button onClick={() => { !selecting && setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
+            <button onClick={() => { selecting ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
-            onClick={() => setComparing(true)}>Compare</button>
+            onClick={() => (selecting && selected.length >= 2) && setComparing(true)}>Compare</button>
             <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
         </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
-                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} />
+                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} reset={reset} />
             })}
           </ul>
           {/* <button className={`compare-button ${(selecting && selected.length >= 2) ? "visible" : "hidden"}`}>Compare</button> */}
@@ -69,6 +72,7 @@ const HomeContainer = styled.section`
         button:nth-child(2).hidden{
             opacity: 50%;
             cursor: default;
+            transition: transform 0.7s ease-in-out, border-color 0.4s ease-in, color 0.4s ease-in;
             :hover{
                 background-color: transparent;
                 color: revert;

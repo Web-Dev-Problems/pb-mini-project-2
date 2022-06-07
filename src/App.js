@@ -17,57 +17,57 @@ function App() {
       localStorage.setItem("data", JSON.stringify({
       0 :{
         images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         price : 15000,
         type : "Apartment",
         year : 2005,
         area: 1406,
         beds : 4,
         baths : 2,
-        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         favorite: false
       },
       1 :{
         images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         price : 30000,
         type : "Commercial",
         year : 2010,
         area: 1406,
         beds : 7,
         baths : 4,
-        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         favorite: false
       },
       2 :{
         images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         price : 5000,
         type : "Condo",
         year : 2002,
         area: 1406,
         beds : 5,
         baths : 6,
-        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         favorite: false
       },
       3 :{
         images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         price : 25000,
         type : "Townhouse",
         year : 2020,
         beds : 5,
         area: 1406,
         baths : 3,
-        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         favorite: false
       },
       4 :{
         images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         price : 5000,
         type : "Co-op",
         year : 2000,
         area: 1406,
         beds : 4,
         baths : 2,
-        address: "1159 Quince Ave, Sunnyvale, CA 94087",
         favorite: false
       }}))}
       setHouseData(JSON.parse(localStorage.getItem("data")))
