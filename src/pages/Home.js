@@ -74,6 +74,7 @@ const HomeContainer = styled.section`
         button:nth-child(2).hidden{
             opacity: 50%;
             cursor: default;
+            transition: transform 0.7s ease-in-out, border-color 0.4s ease-in, color 0.4s ease-in;
             :hover{
                 background-color: transparent;
                 color: revert;
