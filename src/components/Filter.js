@@ -127,7 +127,7 @@ function Filter() {
     )
     return (
         <FilterContainer>
-            {appliedFilters.map((filterIndex, i) => {console.log(filterIndex, filter[filterIndex]);
+            {appliedFilters.map((filterIndex, i) => {
                 return (<li key={i}>{filter[filterIndex].text} {filter[filterIndex].type !== "sort" && filter[filterIndex].values[filter[filterIndex].valueIndex]}</li>)
             })}
         </FilterContainer>

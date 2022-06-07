@@ -1,4 +1,4 @@
-import {useState, useRef } from 'react'
+import {useState, useRef, useEffect } from 'react'
 import styled from "styled-components"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -24,6 +24,9 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
     }
     return num
   } 
+  useEffect(() => {
+    setSelectedbool(false)
+  }, [selecting==false])
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
           {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
@@ -70,10 +73,9 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                   }} />}
         <section id="carousel">
           <ul ref={carouselRef}>
-            <li><img src={value.img} alt="House"></img></li>
-            <li><img src={value.img1} alt="House"></img></li>
-            <li><img src={value.img2} alt="House"></img></li>
-            <li><img src={value.img3} alt="House"></img></li>
+            {value.images.map((img) => {
+              return <li><img src={img} alt="House"></img></li>
+            })}
           </ul>
         </section>
       <section className='nav-arrows'>

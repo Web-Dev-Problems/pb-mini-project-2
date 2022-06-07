@@ -16,10 +16,7 @@ function App() {
     if (!localStorage.getItem("data") || Object.keys(JSON.parse(localStorage.getItem("data"))).length === 0) {
       localStorage.setItem("data", JSON.stringify({
       0 :{
-        img : "/houseImage.jpg",
-        img1 : "/houseImage2.jpg",
-        img2 : "/houseImage3.jpg",
-        img3 : "/houseImage4.jpg",
+        images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
         price : 15000,
         type : "Apartment",
         year : 2005,
@@ -30,10 +27,7 @@ function App() {
         favorite: false
       },
       1 :{
-        img : "/houseImage.jpg",
-        img1 : "/houseImage2.jpg",
-        img2 : "/houseImage3.jpg",
-        img3 : "/houseImage4.jpg",
+        images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
         price : 30000,
         type : "Commercial",
         year : 2010,
@@ -44,10 +38,7 @@ function App() {
         favorite: false
       },
       2 :{
-        img : "/houseImage.jpg",
-        img1 : "/houseImage2.jpg",
-        img2 : "/houseImage3.jpg",
-        img3 : "/houseImage4.jpg",
+        images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
         price : 5000,
         type : "Condo",
         year : 2002,
@@ -58,10 +49,7 @@ function App() {
         favorite: false
       },
       3 :{
-        img : "/houseImage.jpg",
-        img1 : "/houseImage2.jpg",
-        img2 : "/houseImage3.jpg",
-        img3 : "/houseImage4.jpg",
+        images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
         price : 25000,
         type : "Townhouse",
         year : 2020,
@@ -72,10 +60,7 @@ function App() {
         favorite: false
       },
       4 :{
-        img : "/houseImage.jpg",
-        img1 : "/houseImage2.jpg",
-        img2 : "/houseImage3.jpg",
-        img3 : "/houseImage4.jpg",
+        images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
         price : 5000,
         type : "Co-op",
         year : 2000,
