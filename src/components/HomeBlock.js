@@ -26,7 +26,7 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
   } 
   useEffect(() => {
     setSelectedbool(false)
-  }, [selecting==false])
+  }, [selecting==false, reset])
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
           {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
