@@ -45,10 +45,10 @@ const CompareBlockContainer = styled.section`
     position : relative;
     border: none;
     background: #FFFFFF;
-    border-radius: 6px 6px 0px 0px;
     display: flex;
-    /* height: 500px; */
+    align-items: center;
     flex-direction: column;
+    width: 330px;
     > svg{
       width: 30px;
       height: 30px;
@@ -77,7 +77,7 @@ const CompareBlockContainer = styled.section`
       }
     }
     #carousel{
-        margin: 10px; 
+      margin: 15px; 
       width: 300px;
       overflow: hidden;
       position: relative;
@@ -94,7 +94,7 @@ const CompareBlockContainer = styled.section`
             object-fit: cover;
             height: 200px;
             width: 300px;
-            border-radius: 4px;
+            border-radius: 4px 4px 0 0;
           }
         }
       }
@@ -115,24 +115,59 @@ const CompareBlockContainer = styled.section`
       }
       svg:nth-of-type(1) {
         left: 0;
-        margin-left: 1ch;
+        margin-left: calc(15px + 0.7ch);
       }
       svg:nth-of-type(2) {
         right: 0;
-        margin-right: 1ch;
+        margin-right: calc(15px + 0.7ch);
       }
     }
     .compare-details {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        border-right: solid rgba(147, 147, 147, 0.6) 2px;
+        align-items: flex-start;
         p {
-            width: 100%;
-            text-align: center;
-            border-bottom: 1px solid #939393;
-            padding: 8px;
+            /* border-bottom: 1px solid #939393; */
+            font-size: 18px;
+            font-weight: 700;
+            padding: 0 0 0 8px;
+            margin-top: 16px;
             height: 40px;
+            display: flex;
+            flex-direction: column;
+            letter-spacing : 3px;
+            padding-left: 15px;
+            ::before{
+              text-transform: uppercase;
+              font-size: 13px;
+              font-weight: 500;
+              color: #939393;
+              /* padding: 8px 0 0 0; */
+            }
+        }
+        p[id="address"]{
+          margin-bottom: 16px;
+        }
+        p:nth-of-type(1)::before{
+          content : "${props => props.schema[0]}"
+        }
+        p:nth-of-type(2)::before{
+          content : "${props => props.schema[1]}"
+        }
+        p:nth-of-type(3)::before{
+          content : "${props => props.schema[2]}"
+        }
+        p:nth-of-type(4)::before{
+          content : "${props => props.schema[3]}"
+        }
+        p:nth-of-type(5)::before{
+          content : "${props => props.schema[4]}"
+        }
+        p:nth-of-type(6)::before{
+          content : "${props => props.schema[5]}"
+        }
+        p:nth-of-type(7)::before{
+          content : "${props => props.schema[6]}"
         }
     }
 `
