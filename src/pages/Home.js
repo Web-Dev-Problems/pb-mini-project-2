@@ -53,11 +53,21 @@ const HomeContainer = styled.section`
                 color: #fff;
             }
         }
-        .small {
-            width: 80px;
+        button:nth-child(2){
+            border-color:  #939393;
+            margin-left: 8px;
+            :hover{
+                background-color:  #939393;
+                color: #fff;
+            }
         }
-        .big {
-            width: 120px;
+        button:nth-child(2).hidden{
+            opacity: 50%;
+            cursor: default;
+            :hover{
+                background-color: transparent;
+                color: revert;
+            }
         }
     }   
     > ul:nth-of-type(1){
