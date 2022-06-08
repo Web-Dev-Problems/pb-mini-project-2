@@ -2,8 +2,6 @@ import {useState, useRef, useEffect } from 'react'
 import styled from "styled-components"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import HotelIcon from '@mui/icons-material/Hotel';
-import BathtubIcon from '@mui/icons-material/Bathtub';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
@@ -12,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBath } from '@fortawesome/free-solid-svg-icons'
 import { faBed } from '@fortawesome/free-solid-svg-icons'
 
-function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset }) {
+function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset, favoritePage = false }) {
   const [favoritebool, setFavoritebool] = useState(value.favorite)
   const [selectedbool, setSelectedbool] = useState(false)
   var position = useRef(1200)
