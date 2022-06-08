@@ -132,10 +132,11 @@ const CompareBlockContainer = styled.section`
             height: 40px;
             display: flex;
             flex-direction: column;
-            letter-spacing : 3px;
             padding-left: 15px;
+            letter-spacing: 1.3px;
             ::before{
               text-transform: uppercase;
+              letter-spacing : 2px;
               font-size: 13px;
               font-weight: 500;
               color: #939393;
