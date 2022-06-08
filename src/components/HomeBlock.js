@@ -31,48 +31,36 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
   }, [selecting, reset])
   return (
     <HomeBlockContainer type={value.type} area={value.area} beds={value.beds} baths={value.baths}>
-          {selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onMouseDown={(event) => {
-        // setHouseData((prevData) => {
-        //   prevData[index].favorite = false
-        //   return prevData
-        // })
-              setSelected((selected) => {
-                  return selected.filter(e => e !== index)
-              });
+          {
+            selecting ? <RadioButtonCheckedIcon className={selectedbool ? "appear radio" : "disappear radio"} onClick={(event) => {
+                setSelected((selected) => { return selected.filter(e => e !== index) })
+                setSelectedbool(!selectedbool)
+            }} /> 
+            :
+            <FavoriteIcon className={favoritebool ? "appear" : "disappear"} onClick={(event) => {
+              setFavoritebool(favoritePage || !favoritebool)
+              setHouseData((prevData) => {
+                  prevData[index].favorite = false;
+                  return prevData
+              })
+              setFavorite((favorite) => { return favorite.filter(e => e !== index)});
+            }} />
+          }
+          {
+            selecting ? <RadioButtonUncheckedIcon className={selectedbool ? "disappear radio" : "appear radio"} onClick={(event) => {
+              setSelected((selected) => { return [...selected, index]})
               setSelectedbool(!selectedbool)
-          }} /> :
-              <FavoriteIcon className={favoritebool ? "appear" : "disappear"} onMouseDown={(event) => {
-                  setHouseData((prevData) => {
-                      prevData[index].favorite = false
-                      return prevData
-                  })
-        setFavorite((favorite) => {
-          return favorite.filter(e => e !== index)
-        });
-        setFavoritebool(!favoritebool)
-              }} />}
-          {selecting ? <RadioButtonUncheckedIcon className={selectedbool ? "disappear radio" : "appear radio"} onMouseDown={
-              (event) => {
-                  // setHouseData((prevData) => {
-                  //     prevData[index].favorite = true
-                  //     return prevData
-                  // })
-                  setSelected((selected) => {
-                      return [...selected, index]
-                  });
-                  setSelectedbool(!selectedbool)
-              }} /> :
-              <FavoriteBorderIcon className={favoritebool ? "disappear" : "appear"} onMouseDown={
-        (event) => {
-          setHouseData((prevData) => {
-            prevData[index].favorite = true
-            return prevData
-          })
-          setFavorite((favorite) => {
-            return [...favorite, index]
-          });
-          setFavoritebool(!favoritebool)
-                  }} />}
+            }} /> 
+              :
+            <FavoriteBorderIcon className={favoritebool ? "disappear" : "appear"} onClick={(event) => {
+              setFavoritebool(favoritePage || !favoritebool)
+              setHouseData((prevData) => {
+                prevData[index].favorite = true
+                return prevData
+              })
+              setFavorite((favorite) => { return [...favorite, index]})
+            }} />
+          }
         <section id="carousel">
           <ul ref={carouselRef}>
             {value.images.map((img, i) => {
