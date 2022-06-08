@@ -16,7 +16,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
     }
   return (
     <HomeContainer>
-        <Filter />
+        {/* <Filter /> */}
         <section  className={selecting ? "show" : "hide"}>
             <button className={(selecting && selected.length === 0) && "hidden"} onClick={() => { (selecting && selected.length > 0)  ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
@@ -44,7 +44,7 @@ const HomeContainer = styled.section`
         flex-direction: row;
         justify-content: flex-end;
         margin: 0 50px;
-        padding: 50px 0 0 0;
+        padding: 20px 0 0 0;
         overflow: hidden;
         button{
             font-size: 18px;
@@ -128,7 +128,7 @@ const HomeContainer = styled.section`
             transform: translateX(250px);
         }
     }
-    > ul:nth-of-type(2){
+    > ul:nth-of-type(1){
         padding: 20px 0 30px 0;
         display: grid;
         grid-template-columns: repeat(auto-fill, 300px);
