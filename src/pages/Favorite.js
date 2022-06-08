@@ -9,7 +9,7 @@ function Favorite({houseData, favorite, setFavorite, setHouseData}) {
         {/* <Filter /> */}
         <ul>
             {favorite && favorite.map((value, i) => {
-                return <HomeBlock key={i} value={houseData[value]} index={value} setFavorite={setFavorite} setHouseData={setHouseData} />
+                return <HomeBlock key={i} value={houseData[value]} index={value} setFavorite={setFavorite} setHouseData={setHouseData} favoritePage={true}/>
             })}
         </ul>
     </FavoriteContainer>
