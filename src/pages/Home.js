@@ -18,7 +18,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
     <HomeContainer>
         <Filter />
         <section  className={selecting ? "show" : "hide"}>
-            <button onClick={() => { selecting ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
+            <button className={(selecting && selected.length === 0) && "hidden"} onClick={() => { (selecting && selected.length > 0)  ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
             onClick={() => (selecting && selected.length >= 2) && setComparing(true)}>Compare</button>
             <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
@@ -56,9 +56,18 @@ const HomeContainer = styled.section`
         }
         button:nth-child(1){
             border-color: #939393;
+            transition: transform 0.7s ease-in-out, border-color 0.1s ease-in, color 0.1s ease-in, opacity 0.1s ease-in;
             :hover{
                 background-color: #939393;
                 color: #fff;
+            }
+        }
+        button:nth-child(1).hidden{
+            opacity: 50%;
+            cursor: default;
+            :hover{
+                background-color: transparent;
+                color: revert;
             }
         }
         button:nth-child(2){
@@ -72,7 +81,7 @@ const HomeContainer = styled.section`
         button:nth-child(2).hidden{
             opacity: 50%;
             cursor: default;
-            transition: transform 0.7s ease-in-out, border-color 0.4s ease-in, color 0.4s ease-in;
+            transition: transform 0.7s ease-in-out, border-color 0.1s ease-in, color 0.1s ease-in, opacity 0.1s ease-in;
             :hover{
                 background-color: transparent;
                 color: revert;
@@ -94,9 +103,9 @@ const HomeContainer = styled.section`
         }
         button:nth-child(2).animate{
             animation: bounce 0.7s cubic-bezier(1, 1, 0.45, 0.71);
-            border-color:  blue;
+            border-color:  #3160f0;
             :hover{
-                background-color: blue;
+                background-color: #3160f0;
             }
         }
         button:nth-child(3){
@@ -125,7 +134,7 @@ const HomeContainer = styled.section`
         grid-template-columns: repeat(auto-fill, 300px);
         width: 100%;
         justify-content: center;
-        grid-column-gap: 34px;
+        grid-column-gap: 50px;
         grid-row-gap: 27px;
     }
     .compare-button {

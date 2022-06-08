@@ -8,7 +8,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBath } from '@fortawesome/free-solid-svg-icons'
+import { faBed } from '@fortawesome/free-solid-svg-icons'
 
 function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset }) {
   const [favoritebool, setFavoritebool] = useState(value.favorite)
@@ -73,8 +75,8 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                   }} />}
         <section id="carousel">
           <ul ref={carouselRef}>
-            {value.images.map((img) => {
-              return <li><img src={img} alt="House"></img></li>
+            {value.images.map((img, i) => {
+              return <li key={i}><img src={img} alt="House"></img></li>
             })}
           </ul>
         </section>
@@ -95,10 +97,10 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
         <p id="area">Plot Area :</p>
         <section className="facilities">
           <section>
-            <HotelIcon />
+            <FontAwesomeIcon icon={faBed} />
           </section>
           <section>
-            <BathtubIcon />
+            <FontAwesomeIcon icon={faBath} />
           </section>
         </section>
       </section>
@@ -122,7 +124,7 @@ const HomeBlockContainer = styled.li`
       right: 0;
       margin: 8px;
       cursor: pointer;
-      transition: color 0.1s;
+      transition: color 0.1s ease-in;
       :hover{
         color: rgb(255 225 225);
       }
@@ -136,13 +138,12 @@ const HomeBlockContainer = styled.li`
     }
     .disappear{
       color: transparent;
-      z-index: 0;
+      z-index: 2;
       :hover{
-        z-index: 0;
+        z-index: 2;
       }
     }
     .radio {
-        // color: blue;
         :hover {
             color: white;
         }
@@ -273,8 +274,14 @@ const HomeBlockContainer = styled.li`
         section:nth-of-type(1):after{
           content: "${props => props.beds}";
         }
-        section:nth-of-type(2):after{
-          content: "${props => props.baths}";
+        section:nth-of-type(2){
+          svg {
+            width: 20px;
+            height: 18px;
+          }
+          :after{
+            content: "${props => props.baths}";
+          }
         }
       }
     }
