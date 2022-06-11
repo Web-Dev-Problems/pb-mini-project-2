@@ -18,7 +18,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
     <HomeContainer>
         {/* <Filter /> */}
         <section  className={selecting ? "show" : "hide"}>
-            <button className={(selecting && selected.length === 0) && "hidden"} onClick={() => { (selecting && selected.length > 0)  ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
+            <button className={(selecting && selected.length === 0) ? "hidden" : ""} onClick={() => { (selecting && selected.length > 0)  ? resetCompare() : setSelecting(true) }}>{selecting ? "Deselect All" : "Select" }</button>
             <button className={!(selecting && selected.length >= 2) ? "hidden" : "animate"}
             onClick={() => (selecting && selected.length >= 2) && setComparing(true)}>Compare</button>
             <button onClick={() => { setSelected([]); setSelecting(false) }}>Cancel</button>
