@@ -13,7 +13,7 @@ function Navbar() {
                 <Link to="/favorite">Favorite</Link>
             </li>
             <li>
-                <Link to="#">Add House</Link>
+                <Link to="/listing">Add House</Link>
             </li>
             <li>
                 <Link to="#">Account</Link>

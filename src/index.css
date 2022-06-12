@@ -30,7 +30,7 @@ button{
   background-color: transparent;
 }
 
-input{
+input, textarea{
   padding: 0;
   border: 0;
   outline: 0;
