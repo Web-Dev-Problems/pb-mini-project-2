@@ -191,10 +191,14 @@ const DragDrop = styled.section`
                 display: flex;
                 flex-direction: row;
                 width: 100%;
+                //max-width: 61.25em;
+                //flex: 1;
                 font-size: 14px;
-                max-width: 56.25em;
-                overflow-x: auto;
+                // max-width: 56.25em;
+                /* max-width: 100%; */
+                overflow-x: scroll;
                 padding: 10px 0 0 0;
+                margin: 0;
                 img{
                     width: 200px;
                     height: 150px;
