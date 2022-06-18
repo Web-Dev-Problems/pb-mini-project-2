@@ -11,8 +11,8 @@ const CompareBlock = ({ value }) => {
     <CompareBlockContainer schema={schema}>
         <section id="carousel">
           <ul ref={carouselRef}>
-            {value.images.map((img) => {
-              return <li><img src={img} alt="House"></img></li>
+            {value.images.map((img, i) => {
+              return <li key={i}><img src={img} alt="House"></img></li>
             })}
           </ul>
         </section>
@@ -27,9 +27,9 @@ const CompareBlock = ({ value }) => {
             }/>
       </section>
       <section className='compare-details'>
-        {Object.keys(value).map((attr) => {
-            if (attr !== "images" && attr !== "favorite") {
-                return <p id={`${attr}`}>{value[attr]}</p>
+        {Object.keys(value).map((attr, i) => {
+            if (attr !== "images" && attr !== "favorite" && attr !== "_id" && attr !== "__v") {
+                return <p key={i} id={`${attr}`}>{value[attr]}</p>
             }
             return null
         })}

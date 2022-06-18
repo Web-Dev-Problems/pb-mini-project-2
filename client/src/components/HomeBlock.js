@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBath } from '@fortawesome/free-solid-svg-icons'
 import { faBed } from '@fortawesome/free-solid-svg-icons'
 
-function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset, favoritePage = false }) {
-  const [favoritebool, setFavoritebool] = useState(value.favorite)
+function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset, favorite, favoritePage = false }) {
+  const [favoritebool, setFavoritebool] = useState(favorite[index] ? favorite[index] : false)
   const [selectedbool, setSelectedbool] = useState(false)
   var position = useRef(1200)
   const carouselRef = useRef()
@@ -41,7 +41,10 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                   prevData[index].favorite = false;
                   return prevData
               })
-              setFavorite((favorite) => { return favorite.filter(e => e !== index)});
+              setFavorite((favorite) => {
+                const {[index]:_ , ...newFav} = favorite;
+                return newFav
+              });
             }} />
           }
           {
@@ -56,7 +59,7 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
                 prevData[index].favorite = true
                 return prevData
               })
-              setFavorite((favorite) => { return [...favorite, index]})
+              setFavorite((favorite) => { return {[index] : true, ...favorite}})
             }} />
           }
         <section id="carousel">
@@ -207,6 +210,7 @@ const HomeBlockContainer = styled.li`
       }
       #type:after{
         content: "${props => props.type}";
+        word-break: break-all;
       }
       #area:after{
         content: "${props => props.area}";
