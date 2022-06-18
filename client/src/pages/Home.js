@@ -1,11 +1,12 @@
 import HomeBlock from '../components/HomeBlock';
 import styled from "styled-components";
 // import Filter from "../components/Filter";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Compare from '../components/Compare';
+import axios from '../axios';
 
 
-function Home({ houseData, setFavorite, setHouseData }) {
+function Home({ houseData, setFavorite, setHouseData, favorite }) {
     const [selecting, setSelecting] = useState(false)
     const [reset, setReset] = useState(false)
     const [selected, setSelected] = useState([])
@@ -14,6 +15,13 @@ function Home({ houseData, setFavorite, setHouseData }) {
         setSelected([]);
         setReset(!reset)
     }
+
+    useEffect(() => {
+        axios.get('/').then((res) => {
+          setHouseData(() => {return {...res.data}})
+        })
+      }, [])
+
   return (
     <HomeContainer>
         {/* <Filter /> */}
@@ -25,7 +33,7 @@ function Home({ houseData, setFavorite, setHouseData }) {
         </section>
         <ul>
             {houseData && Object.values(houseData).map((value, i) => {
-                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} reset={reset} />
+                  return <HomeBlock key={i} value={value} index={i} setFavorite={setFavorite} setHouseData={setHouseData} selecting={selecting} setSelected={setSelected} favorite={favorite} reset={reset} />
             })}
           </ul>
           {/* <button className={`compare-button ${(selecting && selected.length >= 2) ? "visible" : "hidden"}`}>Compare</button> */}
