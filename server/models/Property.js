@@ -2,10 +2,8 @@ const mongoose = require("mongoose")
 
 const propertySchema = new mongoose.Schema({
     images : [{
-        type : String,
+        type: String,
         required: true
-        // data : Buffer,
-        // contentType : String,
     }],
     address : {
         type : String,
