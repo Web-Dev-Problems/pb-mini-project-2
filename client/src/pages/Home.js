@@ -142,7 +142,7 @@ const HomeContainer = styled.section`
         grid-template-columns: repeat(auto-fill, 300px);
         width: 100%;
         justify-content: center;
-        grid-column-gap: 50px;
+        grid-column-gap: 40px;
         grid-row-gap: 27px;
     }
     .compare-button {
