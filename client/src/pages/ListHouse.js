@@ -27,12 +27,13 @@ function ListHouse() {
         baths : ""
     }))
     const [highlight, setHighlight] = useState(false)
-    const [srcs, setSrcs] = useState([])
+    const [images, setImages] = useState([])
     const form = useRef()
     const [year, setYear] = useState('')
     const submitForm = async (event) => {
-        const property = {
-            images : ["/houseImage.jpg", "/houseImage2.jpg", "/houseImage3.jpg", "/houseImage4.jpg"],
+        console.log(form.current.getElementsByTagName("input")['fileUpload'].file)
+        const properties = {
+            images : images,
             address : form.current.getElementsByTagName("input")['address'].value,
             description : form.current.getElementsByTagName("textarea")['description'].value,
             price : parseFloat(form.current.getElementsByTagName("input")['price'].value),
@@ -42,6 +43,18 @@ function ListHouse() {
             beds : parseInt(form.current.getElementsByTagName("input")['beds'].value),
             baths : parseInt(form.current.getElementsByTagName("input")['baths'].value)
         }
+        var formData = new FormData()
+        Object.keys(properties).map((property) => {
+            if (property == "images") {
+                for(let i =0; i < properties[property].length; i++) {
+                    formData.append(property, properties[property][i]);
+                }
+            }
+            else {
+                formData.append(property, properties[property])
+            }
+        })
+        console.log(formData)
         storageObj.setItem("formInput", JSON.stringify({
             address : "",
             description : "",
@@ -52,20 +65,30 @@ function ListHouse() {
             beds : "",
             baths : ""
         }))
-        axios.post('/add-property', {...property}).then(
+        console.log(images);
+        console.log(properties)
+        axios.post('/add-property', formData, {headers: {
+            "content-type": "multipart/form-data"
+        }}).then(
             window.location.replace("/")
         )
     }
+    var dt = new DataTransfer();
     function handleFiles(e) {
         let files = e.dataTransfer? e.dataTransfer.files : e.target.files
-        files = [...files]
+        console.log(files);
+        [...files].map((file) => {
+            dt.items.add(file);
+        });
         
-        files.map((file) => {
-            setSrcs((srcs) =>[...srcs, URL.createObjectURL(file)])
-            return 0;
-        })
+        var file_list = dt.files;
+        setImages(file_list);
+        console.log(images);
+        console.log(dt);
         try{
+            console.log(e.target.value)
             e.target.value = ''
+
         } catch(err){
             console.log(err)
         }
@@ -171,15 +194,23 @@ function ListHouse() {
                         }}
                     >
                         <span>Drag drop shenanigans (dummy)</span>
-                        <input type="file" id="fileUpload" accept="image/png, image/jpeg" multiple
+                        <input name="images" type="file" id="fileUpload" accept="image/png, image/jpeg" multiple
                             onChange={handleFiles}
                         ></input>
                         </label>
                         <ul id="image-section">
-                            {srcs.map((src, i) => {
+                            {[...images].map((image, i) => {
+                                console.log(URL.createObjectURL(image));
                                 return <li key={i}>
-                                            <img src={src} alt="iono"></img>
-                                            <CustomCloseIcon onClick={() => setSrcs((src) => src.filter((_,index) => index!== i))}/>
+                                            <img src={URL.createObjectURL(image)} alt="iono"></img>
+                                            <CustomCloseIcon onClick={() => {console.log(dt);setImages((image) => {
+                                                console.log(dt)
+                                                // console.log()
+                                                // dt.items.remove(i)
+                                                return image
+                                                // console.log(dt)
+                                                // return (dt.files)
+                                            })}}/>
                                         </li>
                             })}
                         </ul>

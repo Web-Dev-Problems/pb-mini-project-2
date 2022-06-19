@@ -13,7 +13,7 @@ import { faBed } from '@fortawesome/free-solid-svg-icons'
 function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset, favorite, favoritePage = false }) {
   const [favoritebool, setFavoritebool] = useState(favorite[index] ? favorite[index] : false)
   const [selectedbool, setSelectedbool] = useState(false)
-  var position = useRef(1200)
+  var position = useRef(300 * value.images.length)
   const carouselRef = useRef()
   function FormatPrice(num){
     if(num >= 1000000){
@@ -65,17 +65,17 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
         <section id="carousel">
           <ul ref={carouselRef}>
             {value.images.map((img, i) => {
-              return <li key={i}><img src={img} alt="House"></img></li>
+              return <li key={i}><img src={`http://localhost:8080/test/${img}`} alt="House"></img></li>
             })}
           </ul>
         </section>
       <section className='nav-arrows'>
         <ArrowBackIosIcon onClick={() => {
-          position.current = (position.current - 300) % 1200;
+          position.current = (position.current - 300) % (300 * value.images.length);
           carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
         <ArrowForwardIosIcon onClick={() => {
-          position.current = (position.current + 300) % 1200;
+          position.current = (position.current + 300) % (300* value.images.length);
           carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
       </section>
