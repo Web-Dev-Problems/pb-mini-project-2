@@ -13,7 +13,7 @@ import { faBed } from '@fortawesome/free-solid-svg-icons'
 function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSelected, reset, favorite, favoritePage = false }) {
   const [favoritebool, setFavoritebool] = useState(favorite[index] ? favorite[index] : false)
   const [selectedbool, setSelectedbool] = useState(false)
-  var position = useRef(300 * value.images.length)
+  var position = useRef(320 * value.images.length)
   const carouselRef = useRef()
   function FormatPrice(num){
     if(num >= 1000000){
@@ -71,11 +71,11 @@ function HomeBlock({ value, index, setFavorite, setHouseData, selecting, setSele
         </section>
       <section className='nav-arrows'>
         <ArrowBackIosIcon onClick={() => {
-          position.current = (position.current - 300) % (300 * value.images.length);
+          position.current = (position.current - 320) % (320 * value.images.length);
           carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
         <ArrowForwardIosIcon onClick={() => {
-          position.current = (position.current + 300) % (300* value.images.length);
+          position.current = (position.current + 320) % (320* value.images.length);
           carouselRef.current && (carouselRef.current.style.left = `-${position.current}px`)}
             }/>
       </section>
@@ -138,7 +138,7 @@ const HomeBlockContainer = styled.li`
         }
     }
     #carousel{
-      width: 300px;
+      width: 320px;
       overflow: hidden;
       position: relative;
       height: 200px;
@@ -153,7 +153,7 @@ const HomeBlockContainer = styled.li`
           img{
             object-fit: cover;
             height: 200px;
-            width: 300px;
+            width: 320px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
           }
