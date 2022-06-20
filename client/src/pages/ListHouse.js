@@ -28,6 +28,7 @@ function ListHouse() {
     const [highlight, setHighlight] = useState(false)
     const [images, setImages] = useState([])
     const form = useRef()
+    const dt = useRef(new DataTransfer())
     const [year, setYear] = useState('')
     const submitForm = async (event) => {
         console.log(form.current.getElementsByTagName("input")['fileUpload'].file)
@@ -72,9 +73,9 @@ function ListHouse() {
             window.location.replace("/")
         )
     }
-    var dt = new DataTransfer();
+    // var dt = new DataTransfer();
     function handleFiles(e) {
-        let files = e.dataTransfer? e.dataTransfer.files : e.target.files
+        let files = e.dataTransfer? e.dataTransfer.files : e.target.files;
         console.log(files);
         [...files].map((file) => {
             dt.items.add(file);
