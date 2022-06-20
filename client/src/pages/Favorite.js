@@ -24,7 +24,7 @@ const FavoriteContainer = styled.section`
     > ul:nth-of-type(1){
         padding: 70px 0 30px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-columns: repeat(auto-fill, 320px);
         width: 100%;
         justify-content: center;
         grid-column-gap: 34px;

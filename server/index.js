@@ -35,7 +35,8 @@ app.use((req, res, next) => {
 app.get("/", async (req, res) => {
     try{
         const properties = await PropertyModel.find()
-        res.json(properties)
+        // console.log(properties)
+        res.json(properties.slice(0,2))
         console.log("Sent property data")
     } catch(error){
         console.log(error)
