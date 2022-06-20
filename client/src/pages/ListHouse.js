@@ -75,10 +75,9 @@ function ListHouse() {
         var dt1 = dt.current ? dt.current: new DataTransfer();
         var formInput = JSON.parse(storageObj.getItem("formInput"));
         [...files].map((file) => {
-            dt.items.add(file);
+            dt1.items.add(file);
         });
-        
-        var file_list = dt.files;
+        var file_list = dt1.files;
         setImages(file_list);
         dt.current = dt1
         formInput["dt"] = [...dt.current.files].map((image) => {
