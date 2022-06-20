@@ -141,6 +141,14 @@ function ListHouse() {
     useEffect(() => {
       if(storageObj.getItem("formInput")){
         var formInput = JSON.parse(storageObj.getItem("formInput"))
+        // formInput["dt"] && formInput["dt"].map(async (blober) => {
+        //     var file1 = await fetch(blober.url).then(r => r.blob())
+        //     .then(blobFile => new File([blobFile], blober.name, {type : blober.type}));
+        //     // var file1 = new File([blob], blober, {type: blob.type});
+        //     dt.current.items.add(file1)
+        //     return 0
+        // })
+        // formInput["dt"] && setImages(dt.current.files)
         form.current.getElementsByTagName("input")['address'].value = formInput["address"]
         form.current.getElementsByTagName("textarea")['description'].value = formInput["description"]
         form.current.getElementsByTagName("input")['price'].value = formInput["price"] ? formInput["year"] : ''
