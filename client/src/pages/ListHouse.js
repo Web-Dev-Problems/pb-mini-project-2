@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from "styled-components"
 import axios from '../axios';
 import CloseIcon from '@mui/icons-material/Close';
-import url from 'url';
 
 function ListHouse() {
     function lsTest() {
@@ -29,9 +28,9 @@ function ListHouse() {
     const [highlight, setHighlight] = useState(false)
     const [images, setImages] = useState([])
     const form = useRef()
+    const dt = useRef(new DataTransfer())
     const [year, setYear] = useState('')
     const submitForm = async (event) => {
-        console.log(form.current.getElementsByTagName("input")['fileUpload'].file)
         const properties = {
             images : images,
             address : form.current.getElementsByTagName("input")['address'].value,
@@ -54,7 +53,6 @@ function ListHouse() {
                 formData.append(property, properties[property])
             }
         })
-        console.log(formData)
         storageObj.setItem("formInput", JSON.stringify({
             address : "",
             description : "",
@@ -65,28 +63,28 @@ function ListHouse() {
             beds : "",
             baths : ""
         }))
-        console.log(images);
-        console.log(properties)
         axios.post('/add-property', formData, {headers: {
             "content-type": "multipart/form-data"
         }}).then(
             window.location.replace("/")
         )
     }
-    var dt = new DataTransfer();
+    // var dt = new DataTransfer();
     function handleFiles(e) {
-        let files = e.dataTransfer? e.dataTransfer.files : e.target.files
-        console.log(files);
+        let files = e.dataTransfer? e.dataTransfer.files : e.target.files;
+        var dt1 = dt.current ? dt.current: new DataTransfer();
+        var formInput = JSON.parse(storageObj.getItem("formInput"));
         [...files].map((file) => {
-            dt.items.add(file);
+            dt1.items.add(file);
         });
-        
-        var file_list = dt.files;
+        var file_list = dt1.files;
         setImages(file_list);
-        console.log(images);
-        console.log(dt);
+        dt.current = dt1
+        formInput["dt"] = [...dt.current.files].map((image) => {
+            return {url : URL.createObjectURL(image), name : image.name, type : image.type}
+        })
+        storageObj.setItem("formInput", JSON.stringify(formInput))
         try{
-            console.log(e.target.value)
             e.target.value = ''
 
         } catch(err){
@@ -121,7 +119,6 @@ function ListHouse() {
         }
         var formInput = JSON.parse(storageObj.getItem("formInput"))
         formInput["year"] = e.target.value
-        console.log(formInput, formInput.year)
         storageObj.setItem("formInput", JSON.stringify(formInput))
     }
     const handleAreaChange = (e) => {
@@ -143,6 +140,14 @@ function ListHouse() {
     useEffect(() => {
       if(storageObj.getItem("formInput")){
         var formInput = JSON.parse(storageObj.getItem("formInput"))
+        // formInput["dt"] && formInput["dt"].map(async (blober) => {
+        //     var file1 = await fetch(blober.url).then(r => r.blob())
+        //     .then(blobFile => new File([blobFile], blober.name, {type : blober.type}));
+        //     // var file1 = new File([blob], blober, {type: blob.type});
+        //     dt.current.items.add(file1)
+        //     return 0
+        // })
+        // formInput["dt"] && setImages(dt.current.files)
         form.current.getElementsByTagName("input")['address'].value = formInput["address"]
         form.current.getElementsByTagName("textarea")['description'].value = formInput["description"]
         form.current.getElementsByTagName("input")['price'].value = formInput["price"] ? formInput["year"] : ''
@@ -194,22 +199,16 @@ function ListHouse() {
                         }}
                     >
                         <span>Drag drop shenanigans (dummy)</span>
-                        <input name="images" type="file" id="fileUpload" accept="image/png, image/jpeg" multiple
+                        <input name="images" type="file" id="fileUpload" accept="image/*" multiple
                             onChange={handleFiles}
                         ></input>
                         </label>
                         <ul id="image-section">
                             {[...images].map((image, i) => {
-                                console.log(URL.createObjectURL(image));
                                 return <li key={i}>
                                             <img src={URL.createObjectURL(image)} alt="iono"></img>
-                                            <CustomCloseIcon onClick={() => {console.log(dt);setImages((image) => {
-                                                console.log(dt)
-                                                // console.log()
-                                                // dt.items.remove(i)
+                                            <CustomCloseIcon onClick={() => {setImages((image) => {
                                                 return image
-                                                // console.log(dt)
-                                                // return (dt.files)
                                             })}}/>
                                         </li>
                             })}
