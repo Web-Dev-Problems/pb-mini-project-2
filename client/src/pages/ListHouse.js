@@ -192,7 +192,7 @@ function ListHouse() {
                         }}
                     >
                         <span>Drag drop shenanigans (dummy)</span>
-                        <input name="images" type="file" id="fileUpload" accept="image/png, image/jpeg" multiple
+                        <input name="images" type="file" id="fileUpload" accept="image/*" multiple
                             onChange={handleFiles}
                         ></input>
                         </label>
