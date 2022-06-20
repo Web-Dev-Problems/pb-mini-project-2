@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from "styled-components"
 import axios from '../axios';
 import CloseIcon from '@mui/icons-material/Close';
-import url from 'url';
 
 function ListHouse() {
     function lsTest() {
